@@ -167,13 +167,12 @@ h3 {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-/* Form Styling - Responsive */
+
 .form-group {
     margin-bottom: 16px;
 }
 
 .form-group label {
-    display: block;
     margin-bottom: 6px;
     font-weight: 500;
     color: var(--dark);
