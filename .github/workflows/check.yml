@@ -15,4 +15,5 @@ jobs:
         run: |
           test -f index.html
           test -f index.css
-          test -f script.js
+          test -f src/script.js
+          test -f src/chart.js
