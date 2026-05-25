@@ -67,7 +67,8 @@ body {
     background-clip: text;
     color: transparent;
     line-height: 1.2;
-    word-break: break-word;
+    overflow-wrap: anywhere;
+     word-break: normal;
 }
 
 .tagline {

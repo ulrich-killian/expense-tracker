@@ -121,7 +121,7 @@ class ExpenseTracker {
 
   deleteTransaction(id) {
     const transaction = this.transactions.find((t) => t.id === id);
-    
+
     if (!transaction) {
         this.showError('Transaction not found');
         return;
@@ -181,18 +181,17 @@ class ExpenseTracker {
     const currentYear = now.getFullYear();
 
     return this.transactions.filter((transaction) => {
+        
       const transactionDate = new Date(transaction.date);
 
-      switch (this.currentFilter) {
+      switch(this.currentFilter) {
         case 'income':
-          return transaction.type === 'income';
+            return transaction.type === 'income';
         case 'expense':
-          return transaction.type === 'expense';
+            return transaction.type === 'expense';
         case 'month':
-          return (
-            transactionDate.getMonth() === currentMonth &&
-            transactionDate.getFullYear() === currentYear
-          );
+            return transactionDate.getMonth() === currentMonth && 
+                   transactionDate.getFullYear() === currentYear;
         default:
           return true;
       }
