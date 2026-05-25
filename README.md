@@ -18,9 +18,9 @@ Architecture & Logic
 Project Structure:
 text
 
-├── chart.js/           # Chart display logic
+├── src/chart.js        # Chart display logic
 ├── index.html          # Main HTML file
-├── script.js           # DOM manipulation and logic
+├── src/script.js       # DOM manipulation and logic
 ├── style.css           # Styling
 └── README.md           # Project description
 
