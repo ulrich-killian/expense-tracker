@@ -12,7 +12,7 @@ Tech Stack
 Installation & Setup
 Clone the repository:
 
-git clone https://github.com/79Rcf/expense-tracker 
+git clone https://github.com/ulrich-killian/expense-tracker
 
 Architecture & Logic
 Project Structure:
