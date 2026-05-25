@@ -121,6 +121,12 @@ class ExpenseTracker {
 
   deleteTransaction(id) {
     const transaction = this.transactions.find((t) => t.id === id);
+    
+    if (!transaction) {
+        this.showError('Transaction not found');
+        return;
+      }
+
     this.transactions = this.transactions.filter((t) => t.id !== id);
     this.saveTransactions();
     this.updateUI();
