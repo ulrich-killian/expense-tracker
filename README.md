@@ -18,11 +18,11 @@ Architecture & Logic
 Project Structure:
 text
 
-├── src/chart.js        # Chart display logic
-├── index.html          # Main HTML file
-├── src/script.js       # DOM manipulation and logic
-├── style.css           # Styling
-└── README.md           # Project description
+ src/chart.js        # Chart display logic
+ index.html          # Main HTML file
+ src/script.js       # DOM manipulation and logic
+ style.css           # Styling
+ README.md           # Project description
 
 Key Design Decisions
 The goal was to create a responsive and user-friendly app for tracking expenses and income.
