@@ -3,9 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+     <div id="toast-container"></div>
     
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-wallet"></i>
+                <h1>Expense Tracker Pro</h1>
+            </div>
+            <p class="tagline">Track your money, grow your wealth</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card balance-card">
+                <div class="card-icon">
+                    <i class="fas fa-scale-balanced"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Balance</h3>
+                    <p id="totalBalance">CFA 0.00</p>
+                </div>
+            </div>
+            
+            <div class="card income-card">
+                <div class="card-icon">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Income</h3>
+                    <p id="totalIncome">CFA 0.00</p>
+                </div>
+            </div>
+            
+            <div class="card expense-card">
+                <div class="card-icon">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Expenses</h3>
+                    <p id="totalExpense">CFA 0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="form-section">
+            <h2><i class="fas fa-plus-circle"></i> Add Transaction</h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="description"><i class="fas fa-pen"></i> Description</label>
+                    <input type="text" id="description" placeholder="e.g., Salary, Groceries, etc." required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount"><i class="fas fa-money-bill-wave"></i> Amount (CFA)</label>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" min="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="type"><i class="fas fa-filter"></i> Type</label>
+                        <select id="type">
+                            <option value="income">Income (+)</option>
+                            <option value="expense">Expense (-)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date"><i class="far fa-calendar"></i> Date</label>
+                    <input type="date" id="date" value="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="category"><i class="fas fa-tags"></i> Category</label>
+                    <select id="category">
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus"></i> Add Transaction
+                </button>
+            </form>
+        </section>
+
+        <section class="filters-section">
+            <h3><i class="fas fa-sliders-h"></i> Filter Transactions</h3>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="income">Income</button>
+                <button class="filter-btn" data-filter="expense">Expenses</button>
+                <button class="filter-btn" data-filter="month">This Month</button>
+            </div>
+        </section>
+
+        <section class="transactions-section">
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> Transaction History</h2>
+                <p id="transactionCount">0 transactions</p>
+            </div>
+            
+            <div class="transactions-list" id="transactionsList">
+                <div class="empty-state">
+                    <i class="fas fa-receipt"></i>
+                    <h3>No transactions yet</h3>
+                    <p>Add your first transaction to get started!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <h2><i class="fas fa-chart-pie"></i> Visual Overview</h2>
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Income vs Expenses</h3>
+                    <canvas id="balanceChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Spending by Category</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>💰 Expense Tracker Pro • Data saved locally in your browser</p>
+            <button id="clearAllBtn" class="clear-btn">
+                <i class="fas fa-trash"></i> Clear All Data
+            </button>
+        </footer>
+    </div>
+
+    <div id="deleteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle" aria-describedby="deleteModalDesc">
+        <div class="modal-content">
+            <h3 id="deleteModalTitle"><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3>
+            <p id="deleteModalDesc">Are you sure you want to delete this transaction?</p>
+            <div class="modal-actions">
+                <button id="cancelDelete" class="btn-secondary">Cancel</button>
+                <button id="confirmDelete" class="btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="src/script.js"></script>
+    <script src="src/chart.js"></script>
 </body>
 </html>
