@@ -167,7 +167,7 @@ h3 {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-/* Form Styling - Responsive */
+
 .form-group {
     margin-bottom: 16px;
 }
@@ -733,10 +733,6 @@ h3 {
 }
 
 
-/* ==============================
-   TOAST NOTIFICATION SYSTEM
-   ============================== */
-
    #toast-container {
     position: fixed;
     top: 20px;
@@ -904,7 +900,6 @@ h3 {
     }
 }
 
-/* Responsive adjustments for toast */
 @media (max-width: 768px) {
     #toast-container {
         top: 10px;
@@ -941,7 +936,7 @@ h3 {
     }
 }
 
-/* For reduced motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
     .toast {
         animation: none;
@@ -963,7 +958,7 @@ h3 {
     }
 }
 
-/* Dark mode support */
+
 @media (prefers-color-scheme: dark) {
     .toast {
         background: #2d3748;
