@@ -29,4 +29,3 @@ The goal was to create a responsive and user-friendly app for tracking expenses 
 
 State Management
 We use localStorage to store JSON-parsed data, ensuring persistence across page reloads since no backend is included at this stage.
-Main fixes made:
